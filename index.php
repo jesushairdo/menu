@@ -1,3 +1,3 @@
 <?php
-print 'Comming soon ...';
+print 'Coming soon ...';
 ?>
