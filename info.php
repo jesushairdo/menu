@@ -1,3 +1,3 @@
 <?php
-print 'This is some info'
+print 'This is some info';
 ?>
