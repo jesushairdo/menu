@@ -1,7 +1,7 @@
 <?php
 // setup constants
 // location of smarty libraries
-define('SMARTY_DIR','D:/home/site/wwwroot/smarty/' );
+define('SMARTY_DIR','D:/home/site/wwwroot/smarty/libs/' );
 // Location of smarty folders
 define('TEMPLATE_DIR', 'D:/home/site/wwwroot/templating/');
 
