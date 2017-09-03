@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>{$title}</title>
+  <title>{$app_name}</title>
 </head>
 <body>
   <h1>Welcome</h1>
