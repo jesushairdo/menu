@@ -3,7 +3,7 @@
 if (itemAlreadyExists($db,'tblUnits', 'unitName', $_POST['unitName']))
 {
     //error cannot add as already exists
-    $message = 'Cannot add as unit already exists'
+    $message = 'Cannot add as unit already exists';
 }
 else
 {
