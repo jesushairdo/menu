@@ -22,6 +22,7 @@ else
     $stmt->bindParam(':unitId', $unitId);
 
     $unitName = $_POST['unitName'];
+    $unitId = $_POST['unitId'];
     $stmt->execute();
     //do some error checking here to see if it did execure the query correctly
 
