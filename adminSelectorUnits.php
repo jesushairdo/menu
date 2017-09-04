@@ -16,6 +16,8 @@ foreach ($results as $row)
 {
     $unitOptions[($row->unitId)] = $row->unitName;
 }
+print '<!-- '. count($unitOptions) .' -->';
+print '<!-- is array'. is_array($unitOptions) .' -->';
 if (is_array($unitOptions) && count($unitOptions)>0)
 {
     $hasOptions = 1;
