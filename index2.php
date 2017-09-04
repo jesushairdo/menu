@@ -2,8 +2,6 @@
 require_once('include.inc.php');
 
 $smarty = new Smarty_Menu();
-print '<!-- $_POST[\'action\'] = ' . $_POST['action'] .' -->';
-print '<!-- $_GET[\'action\'] = '. $_GET['action'] .' -->';
 
 if ($_SERVER['REQUEST_METHOD'] =='POST')
 {
