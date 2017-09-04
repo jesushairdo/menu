@@ -9,7 +9,7 @@ else
 {
     $selectedOption = '';
 }
-$smarty->assign('selectedUnit', $selectedUnit);
+$smarty->assign('selectedOption', $selectedOption);
 //obtain a list of units from the database
 $sql = 'SELECT workoutId, workoutName FROM tblWorkouts ORDER BY workoutName ASC';
 $results = $db->query($sql)->fetchAll();
