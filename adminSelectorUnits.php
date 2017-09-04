@@ -8,7 +8,6 @@ else
     $selectedUnit = '';
 }
 $smarty->assign('selectedUnit', $selectedUnit);
-$unitOptions = '';
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);
@@ -16,6 +15,15 @@ foreach ($results as $row)
 {
     $unitOptions[($row->unitId)] = $row->unitName;
 }
+if (count($unitOptions>0))
+{
+    $hasOptions = true;
+}
+else
+{
+    $hasOptions = false;
+}
+$smarty->assign('hasOptions', $hasOptions);
 $smarty->assign('unitOptions', $unitOptions);
 $smarty->assign('formEditAction', 'adminEditUnit');
 $smarty->assign('formAddAction', 'adminAddUnit');
