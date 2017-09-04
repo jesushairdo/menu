@@ -17,11 +17,11 @@ foreach ($results as $row)
 }
 if (count($unitOptions>0))
 {
-    $hasOptions = true;
+    $hasOptions = 1;
 }
 else
 {
-    $hasOptions = false;
+    $hasOptions = 0;
 }
 $smarty->assign('hasOptions', $hasOptions);
 $smarty->assign('unitOptions', $unitOptions);
