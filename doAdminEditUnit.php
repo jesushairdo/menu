@@ -1,4 +1,5 @@
 <?php
+$message = '';
 //add some input validation!!!
 //validate that the passed ID exists
 if (!idExists($db, 'tblUnits', 'unitId', $_POST['unitId']))
