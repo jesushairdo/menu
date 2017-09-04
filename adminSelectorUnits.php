@@ -12,15 +12,11 @@ $smarty->assign('selectedUnit', $selectedUnit);
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);
+print '<!-- count results '. count($results) .' -->';
 foreach ($results as $row)
 {
-    print '<!-- '. $row->unitId .' - '. $row->unitName .' -->'."\n";
     $unitOptions[($row->unitId)] = $row->unitName;
 }
-print '<!-- '. count($unitOptions) .' -->'."\n";
-print '<!-- is array: '. is_array($unitOptions) .' -->'."\n";
-print '<!-- options variable -- '. print_r($unitOptions) .' -->'."\n";
-print '<!-- var dump ' . var_dump($unitOptions) .'-->';
 if (is_array($unitOptions) && (count($unitOptions)>0))
 {
     $hasOptions = 1;
