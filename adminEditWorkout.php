@@ -1,7 +1,7 @@
 <?php
 $smarty->assign('formAction', 'doAdminEditWorkout');
 //create prepared statement - to avoid SQL injection attack
-$stmt = $db->prepare('SELECT workoutId, workoutName, workoutLocation, workoutReference FROM tblworkouts WHERE workoutId = :workoutId');
+$stmt = $db->prepare('SELECT workoutId, workoutName, workoutLocation, workoutReference FROM tblWorkouts WHERE workoutId = :workoutId');
 //bind a parameter
 $stmt->bindParam(':workoutId', $_POST['workoutId']);
 //execute the statement
