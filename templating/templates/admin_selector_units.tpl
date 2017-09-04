@@ -3,3 +3,4 @@
     <option value="--new--">Add New</option>
     {html_options options=$unitOptions selected=$selectedUnit}
 </select>
+<!-- selected unit: {$selectedUnit} -->
