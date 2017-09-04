@@ -13,6 +13,7 @@ $smarty->assign('selectedUnit', $selectedUnit);
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);
 print '<!-- count results '. count($results) .' -->';
+print '<!-- results '. print_r($results).' -->';
 foreach ($results as $row)
 {
     $unitOptions[($row->unitId)] = $row->unitName;
