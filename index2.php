@@ -5,14 +5,14 @@ $smarty = new Smarty_Menu();
 
 if ($_SERVER['REQUEST_METHOD'] =='POST')
 {
-    if (array_key_exists('action', $_POST['action'))
+    if (array_key_exists('action', $_POST))
     {
         $action = @$_POST['action'];
     }
 }
 else
 {
-    if (array_key_exists('action', $_POST['action']))
+    if (array_key_exists('action', $_POST))
     {
         $action = @$_GET['action'];
     }
