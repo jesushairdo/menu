@@ -8,7 +8,7 @@ else
     $selectedUnit = '';
 }
 $smarty->assign('selectedUnit', $selectedUnit);
-$unitOptions = '';
+//$unitOptions = '';
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);
