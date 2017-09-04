@@ -1,0 +1,19 @@
+<form method="POST" action="/index2.php">
+    <input type="hidden" name="action" value="{$formEditAction}" />
+    <fieldset>
+        <legend>Select {$itemType} to Edit or click ADD</legend>
+        {if $hasOptions}
+        <select name="optionId">
+            <option value="">select a {$itemType}, or add new</option>
+            {html_options options=$options selected=$selectedOption}
+        </select>
+        <input type="submit" value="Edit" />
+        {else}
+        <p>There are no {$itemType}s to edit</p>
+        {/if}
+    </fieldset>
+</form>
+<form method="POST" action="/index2.php">
+    <input type="hidden" name="action" value="{$formAddAction}" />
+    <input type="submit" value="add" />
+</form>

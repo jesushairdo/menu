@@ -21,6 +21,7 @@ else
 print '<!-- action: '. $action . ' -->';
 switch($action)
 {
+    //Units
     case 'adminSelectorUnits':
         require_once('adminSelectorUnits.php');
         break;
@@ -36,6 +37,24 @@ switch($action)
         break;
     case 'doAdminAddUnit':
         require_once('doAdminAddUnit.php');
+        require_once('adminDisplayMessage.php');
+        break;
+    //workouts
+    case 'adminSelectorWorkouts':
+        require_once('adminSelectorWorkouts.php');
+        break;
+    case 'adminEditWorkout':
+        require_once('adminEditWorkout.php');
+        break;
+    case 'doAdminEditWorkout':
+        require_once('doAdminEditWorkout.php');
+        require_once('adminDisplayMessage.php');
+        break;
+    case 'adminAddWorkout':
+        require_once('adminAddWorkout.php');
+        break;
+    case 'doAdminAddWorkout':
+        require_once('doAdminAddWorkout.php');
         require_once('adminDisplayMessage.php');
         break;
     default:
