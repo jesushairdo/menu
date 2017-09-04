@@ -29,6 +29,7 @@ switch($action)
         break;
     case 'doAdminEditUnit':
         require_once('doAdminEditUnit.php');
+        require_once('adminDisplayMessage.php');
         break;
     case 'adminAddUnit':
         require_once('adminAddUnit.php');
