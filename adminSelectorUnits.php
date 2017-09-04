@@ -1,5 +1,5 @@
 <?php
-$smarty->assign('selectedUnit', '1');
+$smarty->assign('selectedUnit', $_POST['unitId']);
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);

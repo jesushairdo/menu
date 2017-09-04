@@ -5,7 +5,6 @@
         {if count($unitOptions)>0}
         <select name="unitId">
             <option value="">select a unit, or add new</option>
-            <option value="--new--">Add New</option>
             {html_options options=$unitOptions selected=$selectedUnit}
         </select>
         <input type="submit" value="Edit" />
