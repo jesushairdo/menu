@@ -8,6 +8,7 @@ else
     $selectedUnit = '';
 }
 $smarty->assign('selectedUnit', $selectedUnit);
+$unitOptions = '';
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);
@@ -15,7 +16,7 @@ foreach ($results as $row)
 {
     $unitOptions[($row->unitId)] = $row->unitName;
 }
-if (isset($unitOptions) && count($unitOptions>0))
+if (is_array($unitOptions) && count($unitOptions>0))
 {
     $hasOptions = 1;
 }
