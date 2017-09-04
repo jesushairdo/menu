@@ -23,7 +23,7 @@ class Smarty_Menu extends Smarty
         $this->setConfigDir(TEMPLATE_DIR . 'configs/');
         $this->setCacheDir(TEMPLATE_DIR . 'cache/');
 
-        $this->caching = Smarty::CACHING_LIFETIME_CURRENT;
+        //$this->caching = Smarty::CACHING_LIFETIME_CURRENT;
         $this->assign('app_name', 'Menuing');
    }
 

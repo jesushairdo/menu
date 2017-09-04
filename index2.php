@@ -2,7 +2,7 @@
 require_once('include.inc.php');
 
 $smarty = new Smarty_Menu();
-$smarty->debugging = true;
+//$smarty->debugging = true;
 $action = '';
 if ($_SERVER['REQUEST_METHOD'] =='POST')
 {
