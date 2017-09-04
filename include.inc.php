@@ -49,7 +49,7 @@ function itemAlreadyExists(&$db, $tableName, $fieldName, $fieldValue)
     $stmt->execute();
     $result = $stmt->fetch();
     print_r($result);
-    if ($result->count > 0)
+    if ($result['count'] > 0)
     {
         return true;
     }
