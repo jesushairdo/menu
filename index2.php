@@ -35,6 +35,7 @@ switch($action)
         break;
     case 'doAdminAddUnit':
         require_once('doAdminAddUnit.php');
+        require_once('adminDisplayMessage.php');
         break;
     default:
         require_once('welcome.php');

@@ -2,12 +2,16 @@
     <input type="hidden" name="action" value="{$formEditAction}" />
     <fieldset>
         <legend>Select Unit to Edit or click ADD</legend>
+        {if count($unitOptions)>0}
         <select name="unitId">
             <option value="">select a unit, or add new</option>
             <option value="--new--">Add New</option>
             {html_options options=$unitOptions selected=$selectedUnit}
         </select>
         <input type="submit" value="Edit" />
+        {else}
+        <p>There are no units to edit</p>
+        {endif}
     </fieldset>
 </form>
 <form method="POST" action="/index2.php">
