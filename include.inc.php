@@ -28,4 +28,6 @@ class Smarty_Menu extends Smarty
    }
 
 }
+$db = new PDO('sqlite:food.sqlite3');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 ?>

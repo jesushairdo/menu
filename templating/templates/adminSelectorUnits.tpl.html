@@ -1,7 +1,7 @@
 <form method="POST" action="/index2.php">
-    <input type="hidden" name="action" value="{$formAction}" />
+    <input type="hidden" name="action" value="{$formEditAction}" />
     <fieldset>
-        <legend>Select Unit</legend>
+        <legend>Select Unit to Edit or click ADD</legend>
         <select name="unitId">
             <option value="">select a unit, or add new</option>
             <option value="--new--">Add New</option>
@@ -9,4 +9,8 @@
         </select>
         <input type="submit" value="Edit" />
     </fieldset>
+</form>
+<form method="POST" action="/index2.php">
+    <input type="hidden" name="action" value="{$formAddAction}" />
+    <input type="submit" value="add" />
 </form>
