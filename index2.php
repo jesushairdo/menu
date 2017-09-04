@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] =='POST')
 }
 else
 {
-    if (array_key_exists('action', $_POST))
+    if (array_key_exists('action', $_GET))
     {
         $action = @$_GET['action'];
     }
