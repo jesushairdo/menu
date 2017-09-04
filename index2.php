@@ -16,6 +16,18 @@ switch($action)
     case 'adminSelectorUnits':
         require_once('adminSelectorUnits.php');
         break;
+    case 'adminEditUnit':
+        require_once('adminEditUnit.php');
+        break;
+    case 'doAdminEditUnit':
+        require_once('doAdminEditUnit.php');
+        break;
+    case 'adminAddUnit':
+        require_once('adminAddUnit.php');
+        break;
+    case 'doAdminAddUnit':
+        require_once('doAdminAddUnit.php');
+        break;
     default:
         //require_once('welcome.php');
         break;

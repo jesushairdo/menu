@@ -1,6 +1,10 @@
-<select name="units">
-    <option value="">select a unit, or add new</option>
-    <option value="--new--">Add New</option>
-    {html_options options=$unitOptions selected=$selectedUnit}
-</select>
-<!-- selected unit: {$selectedUnit} -->
+<form method="POST" action="{$formAction}">
+    <fieldset>
+        <legend>Select Unit</legend>
+        <select name="unitId">
+            <option value="">select a unit, or add new</option>
+            <option value="--new--">Add New</option>
+            {html_options options=$unitOptions selected=$selectedUnit}
+        </select>
+    </fieldset>
+</form>
