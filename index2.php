@@ -29,7 +29,7 @@ switch($action)
         require_once('doAdminAddUnit.php');
         break;
     default:
-        //require_once('welcome.php');
+        require_once('welcome.php');
         break;
 }
 
