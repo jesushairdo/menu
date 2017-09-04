@@ -43,6 +43,10 @@ $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 // **********************
 // ** Custom Functions **
 // **********************
+function idExists(&$db, $tableName, $idFieldName, $idFieldValue)
+{
+    return itemAlreadyExists($db, $tableName, $idFieldName, $idFieldValue);
+}
 function itemAlreadyExists(&$db, $tableName, $fieldName, $fieldValue)
 {
     $stmt = $db->prepare('SELECT COUNT('. $fieldName .') AS count FROM '. $tableName.' WHERE '.$fieldName.' LIKE :fieldValue');
@@ -57,5 +61,9 @@ function itemAlreadyExists(&$db, $tableName, $fieldName, $fieldValue)
     {
         return false;
     }
+}
+function hasItemChanged(&$db, $tableName, $fieldName, $fieldValue)
+{
+    
 }
 ?>
