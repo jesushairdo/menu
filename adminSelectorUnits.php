@@ -15,7 +15,7 @@ $results = $db->query($sql);
 foreach ($results as $row)
 {
     print '<!-- '. $row->unitId .' - '. $row->unitName .' -->'."\n";
-    $unitOptions['($row->unitId)'] = $row->unitName;
+    $unitOptions[($row->unitId)] = $row->unitName;
 }
 print '<!-- '. count($unitOptions) .' -->'."\n";
 print '<!-- is array: '. is_array($unitOptions) .' -->'."\n";
