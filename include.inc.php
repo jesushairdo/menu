@@ -44,7 +44,9 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 // **********************
 function itemAlreadyExists(&$db, $tableName, $fieldName, $fieldValue)
 {
-    $stmt = $db->prepare('SELECT COUNT($fieldName) AS count FROM $tableName WHERE $fieldName LIKE :fieldValue');
+    $stmt = $db->prepare('SELECT COUNT(:fieldName) AS count FROM :tableName WHERE :fieldName LIKE :fieldValue');
+    $stmt->bindParam(':fieldName', $fieldName);
+    $stmt->bindParam(':tableName', $tableName);
     $stmt->bindParam(':fieldValue', $fieldValue);
     $stmt->execute();
     $result = $stmt->fetch();
