@@ -14,6 +14,7 @@ $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);
 foreach ($results as $row)
 {
+    print '<!-- '. $row->unitId .' - '. $row->unitName .' -->'."\n";
     $unitOptions[($row->unitId)] = $row->unitName;
 }
 print '<!-- '. count($unitOptions) .' -->'."\n";
