@@ -15,7 +15,7 @@ foreach ($results as $row)
 {
     $unitOptions[($row->unitId)] = $row->unitName;
 }
-if (count($unitOptions>0))
+if (isset($unitOptions) && count($unitOptions>0))
 {
     $hasOptions = 1;
 }
