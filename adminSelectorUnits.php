@@ -11,7 +11,7 @@ $smarty->assign('selectedUnit', $selectedUnit);
 //$unitOptions = '';
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
-$results = $db->query($sql);
+$results = $db->query($sql)->fetchAll();
 print '<!-- count results '. count($results) .' -->';
 print '<!-- results '. print_r($results).' -->';
 foreach ($results as $row)
