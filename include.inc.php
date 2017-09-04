@@ -38,6 +38,7 @@ class Smarty_Menu extends Smarty
 // ********************
 $db = new PDO('sqlite:food.sqlite3');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
 // **********************
 // ** Custom Functions **
@@ -48,7 +49,7 @@ function itemAlreadyExists(&$db, $tableName, $fieldName, $fieldValue)
     $stmt->bindParam(':fieldValue', $fieldValue);
     $stmt->execute();
     $result = $stmt->fetch();
-    if ($result['count'] > 0)
+    if ($result->count > 0)
     {
         return true;
     }
