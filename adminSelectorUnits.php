@@ -1,5 +1,14 @@
 <?php
-$smarty->assign('selectedUnit', $_POST['unitId']);
+if (array_key_exists($_POST['unitId']))
+{
+    $selectedUnit = $_POST['unitId'];
+}
+else
+{
+    $selectedUnit = '';
+}
+$smarty->assign('selectedUnit', $selectedUnit);
+$unitOptions = '';
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql);
