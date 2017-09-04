@@ -5,11 +5,11 @@ $smarty = new Smarty_Menu();
 
 if ($_SERVER['REQUEST_METHOD'] =='POST')
 {
-    $action = $_POST['action'];
+    $action = @$_POST['action'];
 }
 else
 {
-    $action = $_GET['action'];
+    $action = @$_GET['action'];
 }
 switch($action)
 {
