@@ -16,10 +16,10 @@ foreach ($results as $row)
 {
     $unitOptions[($row->unitId)] = $row->unitName;
 }
-print '<!-- '. count($unitOptions) .' -->';
-print '<!-- is array: '. is_array($unitOptions) .' -->';
-print '<!-- '. print_r($unitOptions) .' -->';
-if (is_array($unitOptions) && count($unitOptions)>0)
+print '<!-- '. count($unitOptions) .' -->'."\n";
+print '<!-- is array: '. is_array($unitOptions) .' -->'."\n";
+print '<!-- options variable -- '. print_r($unitOptions) .' -->'."\n";
+if (is_array($unitOptions) && (count($unitOptions)>0))
 {
     $hasOptions = 1;
 }
