@@ -2,7 +2,7 @@
     <input type="hidden" name="action" value="{$formEditAction}" />
     <fieldset>
         <legend>Select Unit to Edit or click ADD</legend>
-        {if $hasOptions==1}
+        {if $hasOptions}
         <select name="unitId">
             <option value="">select a unit, or add new</option>
             {html_options options=$unitOptions selected=$selectedUnit}

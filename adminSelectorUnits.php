@@ -12,19 +12,17 @@ $smarty->assign('selectedUnit', $selectedUnit);
 //obtain a list of units from the database
 $sql = 'SELECT unitId, unitName FROM tblUnits ORDER BY unitName ASC';
 $results = $db->query($sql)->fetchAll();
-print '<!-- count results '. count($results) .' -->';
-print '<!-- results '. print_r($results).' -->';
-foreach ($results as $row)
+if (count($results)>0)
 {
-    $unitOptions[($row->unitId)] = $row->unitName;
-}
-if (is_array($unitOptions) && (count($unitOptions)>0))
-{
-    $hasOptions = 1;
+    $hasOptions = true;
 }
 else
 {
-    $hasOptions = 0;
+    $hasOptions = false;
+}
+foreach ($results as $row)
+{
+    $unitOptions[($row->unitId)] = $row->unitName;
 }
 $smarty->assign('hasOptions', $hasOptions);
 $smarty->assign('unitOptions', $unitOptions);
