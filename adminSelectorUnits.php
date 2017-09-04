@@ -1,5 +1,5 @@
 <?php
-if (array_key_exists($_POST['unitId']))
+if (array_key_exists('unitId', $_POST))
 {
     $selectedUnit = $_POST['unitId'];
 }
