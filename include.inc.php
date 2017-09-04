@@ -13,6 +13,7 @@ define('TEMPLATE_DIR', 'D:/home/site/wwwroot/templating/');
 // load Smarty library
 require(SMARTY_DIR.'Smarty.class.php');
 //create custom class for smarty
+
 class Smarty_Menu extends Smarty
 {
    function __construct()
