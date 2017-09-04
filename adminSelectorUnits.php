@@ -15,15 +15,17 @@ $results = $db->query($sql)->fetchAll();
 if (count($results)>0)
 {
     $hasOptions = true;
+    foreach ($results as $row)
+    {
+        $unitOptions[($row->unitId)] = $row->unitName;
+    }
 }
 else
 {
     $hasOptions = false;
+    $unitOptions = '';
 }
-foreach ($results as $row)
-{
-    $unitOptions[($row->unitId)] = $row->unitName;
-}
+
 $smarty->assign('hasOptions', $hasOptions);
 $smarty->assign('unitOptions', $unitOptions);
 $smarty->assign('formEditAction', 'adminEditUnit');
