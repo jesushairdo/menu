@@ -17,6 +17,7 @@ else
         $action = @$_GET['action'];
     }
 }
+print '<!-- action: '. $action . ' -->';
 switch($action)
 {
     case 'adminSelectorUnits':
