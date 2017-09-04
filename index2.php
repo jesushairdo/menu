@@ -2,19 +2,20 @@
 require_once('include.inc.php');
 
 $smarty = new Smarty_Menu();
+$smarty->debugging = true;
 $action = '';
 if ($_SERVER['REQUEST_METHOD'] =='POST')
 {
     if (array_key_exists('action', $_POST))
     {
-        $action = @$_POST['action'];
+        $action = $_POST['action'];
     }
 }
 else
 {
     if (array_key_exists('action', $_GET))
     {
-        $action = @$_GET['action'];
+        $action = $_GET['action'];
     }
 }
 print '<!-- action: '. $action . ' -->';
