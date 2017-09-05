@@ -32,8 +32,14 @@ LEFT JOIN tblUnits ON tblUnits.unitId = IngredientList.unitId
 LEFT JOIN tblIngredients ON tblIngredients.ingredientId = IngredientList.ingredientId
 GROUP BY ingredient,unit';
 $ingredients = $db->query($ingredientsSql)->fetchAll();
+for ($k=0; $k<count($ingredients); $k++)
+{
+    $ingredientsList[$k]['amount'] = $ingredients[$k]->amount;
+    $ingredientsList[$k]['unit'] = $ingredients[$k]->unit;
+    $ingredientsList[$k]['ingredient'] = $ingredients[$k]->ingredient;
+}
 //create the output
-$smarty->assign('ingredients', $ingredients);
+$smarty->assign('ingredients', $ingredientsList);
 $smarty->assign('contentTemplate', 'createShoppingList.tpl.html');
 $smarty->assign('pageContentTitle', 'Your shopping list');
 ?>
