@@ -22,7 +22,7 @@ $ingredientsStmt = $db->prepare($ingredientsSql);
 $ingredientsStmt->bindParam(':meal1', $meal1);
 $ingredientsStmt->bindParam(':meal2', $meal2);
 $ingredientsStmt->bindParam(':meal3', $meal3);
-foreach ($menu in $allMenus)
+foreach ($allMenus as $menu)
 {
     //get the ingredient list for this menu
     $meal1 = $menu->meal1;
