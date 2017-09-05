@@ -10,7 +10,7 @@ $menuId = 1;
 $menuStmt->execute();
 $menus = $menuStmt->fetchAll(); // should only return one, as we are searching by menuId
 $allMenus = array();
-$allMenus[] =  $menus;
+$allMenus[] = $menus;
 //prepare the SQL to obtain the ingredient list for this menu
 $ingredientsSql = 'SELECT * FROM (
 SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS unitId, tblRecipeIngredients.ingredientId FROM tblRecipeIngredients WHERE tblRecipeIngredients.RecipeId = :meal1
@@ -23,9 +23,11 @@ $ingredientsStmt = $db->prepare($ingredientsSql);
 $ingredientsStmt->bindParam(':meal1', $meal1);
 $ingredientsStmt->bindParam(':meal2', $meal2);
 $ingredientsStmt->bindParam(':meal3', $meal3);
+print_r($allMenus);
 foreach ($allMenus as $menu)
 {
     //get the ingredient list for this menu
+    print_r($menu);
     $meal1 = $menu->meal1;
     $meal2 = $menu->meal2;
     $meal3 = $menu->meal3;
