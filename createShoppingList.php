@@ -13,10 +13,10 @@ $recipeStmt=$db->prepare($recipeSql);
 $recipeStmt->bindParam(':recipeId', $recipeId);
 //setup variable ready to execute prepared statement
 $recipeId = 1;
-$recipeResults=$recipeStmt->execute();
+$recipeStmt->execute();
 //just grab all results
-$recipeResultSet=$recipeResults->fetchAll();
+$recipeResults=$recipeStmt->fetchAll();
 //debug output the full result set
-print_r($recipeResultSet);
+print_r($recipeResults);
 die();
 ?>
