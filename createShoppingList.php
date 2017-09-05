@@ -32,7 +32,10 @@ foreach ($allMenus as $menu)
     $meal2 = $menu->meal2;
     $meal3 = $menu->meal3;
     $ingredientsStmt->execute();
-    $ingredients += $ingredientsStmt->fetchAll();
+    while($result = $ingredientsStmt->fetch())
+    {
+        $ingredients[] = $result;
+    }
 }
 print_r($ingredients);
 die();
