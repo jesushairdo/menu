@@ -21,8 +21,7 @@ SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS un
 ) AS IngredientList
 LEFT JOIN tblUnits ON tblUnits.unitId = IngredientList.unitId
 LEFT JOIN tblIngredients ON tblIngredients.ingredientId = IngredientList.ingredientId
-GROUP BY ingredient,unit
-';
+GROUP BY ingredient,unit';
 $ingredientsStmt = $db->prepare($ingredientsSql);
 $ingredientsStmt->bindParam(':meal1', $meal1);
 $ingredientsStmt->bindParam(':meal2', $meal2);
@@ -41,7 +40,7 @@ foreach ($allMenus as $menu)
         $ingredients[] = $result;
     }
 }
-//print_r($ingredients);
+print_r($ingredients);
 die();
 /*
 $recipeSql = 'SELECT tblRecipeIngredients.ingredientId AS ingredientId, tblIngredients.ingredientName AS IngredientName, SUM(tblRecipeIngredients.amount) AS IngredientAmount, tblUnits.unitName AS unitName
