@@ -9,7 +9,8 @@ $menuStmt->bindParam(':menuId', $menuId);
 $menuId = 1;
 $menuStmt->execute();
 $menus = $menuStmt->fetchAll(); // should only return one, as we are searching by menuId
-$allMenus += $menus;
+$allMenus = array();
+$allMenus[] =  $menus;
 //prepare the SQL to obtain the ingredient list for this menu
 $ingredientsSql = 'SELECT * FROM (
 SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS unitId, tblRecipeIngredients.ingredientId FROM tblRecipeIngredients WHERE tblRecipeIngredients.RecipeId = :meal1
