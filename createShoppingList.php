@@ -8,7 +8,7 @@ $menuStmt->bindParam(':menuId', $menuId);
 //for each menu run this next bit
 $menuId = 1;
 $menuStmt->execute();
-$menus->fetchAll(); // should only return one, as we are searching by menuId
+$menuStmt->fetchAll(); // should only return one, as we are searching by menuId
 $allMenus += $menus;
 //prepare the SQL to obtain the ingredient list for this menu
 $ingredientsSql = 'SELECT * FROM (
