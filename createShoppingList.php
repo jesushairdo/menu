@@ -12,7 +12,7 @@ $menus = $menuStmt->fetch(); // can only return one, as we are searching by menu
 //$allMenus = array();
 $allMenus[] = $menus;
 //prepare the SQL to obtain the ingredient list for this menu
-$ingredientsSql = 'SELECT IngredientList.amount, tblUnits.unitName, tblIngredients.ingredientName FROM (
+$ingredientsSql = 'SELECT SUM(IngredientList.amount) AS amount, tblUnits.unitName AS unit, tblIngredients.ingredientName AS ingredient FROM (
 SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS unitId, tblRecipeIngredients.ingredientId FROM tblRecipeIngredients WHERE tblRecipeIngredients.RecipeId = :meal1
 UNION ALL
 SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS unitId, tblRecipeIngredients.ingredientId FROM tblRecipeIngredients WHERE tblRecipeIngredients.RecipeId = :meal2
@@ -21,16 +21,17 @@ SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS un
 ) AS IngredientList
 LEFT JOIN tblUnits ON tblUnits.unitId = IngredientList.unitId
 LEFT JOIN tblIngredients ON tblIngredients.ingredientId = IngredientList.ingredientId
+GROUP BY ingredient,unit
 ';
 $ingredientsStmt = $db->prepare($ingredientsSql);
 $ingredientsStmt->bindParam(':meal1', $meal1);
 $ingredientsStmt->bindParam(':meal2', $meal2);
 $ingredientsStmt->bindParam(':meal3', $meal3);
-print_r($allMenus);
+//print_r($allMenus);
 foreach ($allMenus as $menu)
 {
     //get the ingredient list for this menu
-    print_r($menu);
+    //print_r($menu);
     $meal1 = $menu->meal1;
     $meal2 = $menu->meal2;
     $meal3 = $menu->meal3;
@@ -40,7 +41,7 @@ foreach ($allMenus as $menu)
         $ingredients[] = $result;
     }
 }
-print_r($ingredients);
+//print_r($ingredients);
 die();
 /*
 $recipeSql = 'SELECT tblRecipeIngredients.ingredientId AS ingredientId, tblIngredients.ingredientName AS IngredientName, SUM(tblRecipeIngredients.amount) AS IngredientAmount, tblUnits.unitName AS unitName
