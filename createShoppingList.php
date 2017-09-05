@@ -39,6 +39,7 @@ for ($k=0; $k<count($ingredients); $k++)
     $ingredientsList[$k]['ingredient'] = $ingredients[$k]->ingredient;
 }
 //create the output
+print_r($ingredientsList);
 $smarty->assign('ingredients', $ingredientsList);
 $smarty->assign('contentTemplate', 'createShoppingList.tpl.html');
 $smarty->assign('pageContentTitle', 'Your shopping list');
