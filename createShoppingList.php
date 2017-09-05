@@ -5,7 +5,8 @@
 $menuSql = 'SELECT tblMenus.meal1, tblMenus.meal2, tblMenus.meal3 FROM tblMenus WHERE tblMenus.menuId = :menuId';
 $menuStmt = $db->prepare($menuSql);
 $menuStmt->bindParam(':menuId', $menuId);
-
+$menuIds[] = 1;
+$menuIds[] = 2;
 //obtain the recipeIds for the menus required
 foreach ($menuIds as $menuId)
 {
