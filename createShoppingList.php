@@ -32,49 +32,8 @@ LEFT JOIN tblUnits ON tblUnits.unitId = IngredientList.unitId
 LEFT JOIN tblIngredients ON tblIngredients.ingredientId = IngredientList.ingredientId
 GROUP BY ingredient,unit';
 $ingredients = $db->query($ingredientsSql)->fetchAll();
-/*
-$ingredientsStmt = $db->prepare($ingredientsSql);
-//print_r($allMenus);
-foreach ($allMenus as $menu)
-{
-    //get the ingredient list for this menu
-    //print_r($menu);
-    $meal1 = $menu->meal1;
-    $meal2 = $menu->meal2;
-    $meal3 = $menu->meal3;
-    $ingredientsStmt->execute();
-    while($result = $ingredientsStmt->fetch())
-    {
-        $ingredients[] = $result;
-    }
-}
-*/
-print_r($ingredients);
-die();
-/*
-$recipeSql = 'SELECT tblRecipeIngredients.ingredientId AS ingredientId, tblIngredients.ingredientName AS IngredientName, SUM(tblRecipeIngredients.amount) AS IngredientAmount, tblUnits.unitName AS unitName
-FROM tblRecipeIngredients
-LEFT JOIN tblIngredients ON tblIngredients.ingredientId = tblRecipeIngredients.ingredientId
-LEFT JOIN tblUnits ON tblUnits.unitId = tblRecipeIngredients.unitId
-WHERE tblRecipeIngredients.recipeId = :recipeId
-GROUP BY IngredientName, unitName
-ORDER BY ingredientName ASC';
-//prepare statement
-$recipeStmt=$db->prepare($recipeSql);
-$recipeStmt->bindParam(':recipeId', $recipeId);
-//setup variable ready to execute prepared statement
-$recipeId = 1;
-$recipeStmt->execute();
-//loop through results
-while($result = $recipeStmt->fetch())
-{
-    $ingredientsArray[($result->ingredientId)]['name'] = $result->ingredientName;
-    $ingredientsArray[($result->ingredientId)]['unit'] = $result->unitName;
-    $ingredientsArray[($result->ingredientId)]['amount'] = $result->amount;
-
-}
-*/
-//debug output the full result set
-print_r($recipeResults);
-die();
+//create the output
+$smarty->assign('ingredients', $ingredients);
+$smarty->assign('contentTemplate', 'createShoppingList.tpl.html');
+$smarty->assign('pageContentTitle', 'Your shopping list');
 ?>
