@@ -1,2 +1,14 @@
-
-{html_table loop=$ingredients}
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>Unit</th>
+        <th>Name</th>
+    </tr>
+{foreach from=$ingredients item=row}
+    <tr>
+    {foreach from=$row item=column}
+        <td>{$column}</td>
+    {/foreach}
+    </tr>
+{/foreach}
+</table>
