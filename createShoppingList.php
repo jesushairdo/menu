@@ -1,16 +1,20 @@
 <?php
 //create shopping list from menus created.
 // need to workout whether to choose a list of menus, or use a start date / end date, OR do i create another object that represents the full week?
-//obtain the recipeIds for the menus required
+//prepare the statements
 $menuSql = 'SELECT tblMenus.meal1, tblMenus.meal2, tblMenus.meal3 FROM tblMenus WHERE tblMenus.menuId = :menuId';
 $menuStmt = $db->prepare($menuSql);
 $menuStmt->bindParam(':menuId', $menuId);
-//for each menu run this next bit
-$menuId = 1;
-$menuStmt->execute();
-$menus = $menuStmt->fetch(); // can only return one, as we are searching by menuId
-//$allMenus = array();
-$allMenus[] = $menus;
+
+//obtain the recipeIds for the menus required
+foreach ($menuIds as $menuId)
+{
+    //for each menu run this next bit
+    $menuStmt->execute();
+    $menus = $menuStmt->fetch(); // can only return one, as we are searching by menuId
+    //$allMenus = array();
+    $allMenus[] = $menus;
+}
 //prepare the SQL to obtain the ingredient list for this menu
 $ingredientsSql = 'SELECT SUM(IngredientList.amount) AS amount, tblUnits.unitName AS unit, tblIngredients.ingredientName AS ingredient FROM (
 SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS unitId, tblRecipeIngredients.ingredientId FROM tblRecipeIngredients WHERE tblRecipeIngredients.RecipeId = :meal1
