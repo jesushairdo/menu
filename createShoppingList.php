@@ -12,7 +12,7 @@ $menus = $menuStmt->fetch(); // can only return one, as we are searching by menu
 //$allMenus = array();
 $allMenus[] = $menus;
 //prepare the SQL to obtain the ingredient list for this menu
-$ingredientsSql = 'SELECT IngredientsList.amount, tblUnits.unitName, tblIngredients.ingredientName FROM (
+$ingredientsSql = 'SELECT IngredientList.amount, tblUnits.unitName, tblIngredients.ingredientName FROM (
 SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS unitId, tblRecipeIngredients.ingredientId FROM tblRecipeIngredients WHERE tblRecipeIngredients.RecipeId = :meal1
 UNION ALL
 SELECT  tblRecipeIngredients.amount AS amount, tblRecipeIngredients.unitId AS unitId, tblRecipeIngredients.ingredientId FROM tblRecipeIngredients WHERE tblRecipeIngredients.RecipeId = :meal2
