@@ -57,6 +57,9 @@ switch($action)
         require_once('doAdminAddWorkout.php');
         require_once('adminDisplayMessage.php');
         break;
+    case 'createShoppingList':
+        require_once('createShoppingList.php');
+        break;
     default:
         require_once('welcome.php');
         break;
