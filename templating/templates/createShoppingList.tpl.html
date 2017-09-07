@@ -7,8 +7,16 @@
 {foreach from=$ingredients item=row}
     <tr>
     {foreach from=$row item=column}
+        {if $column@first}
+        <td align="right">{$column}</td>
+        {else}
         <td>{$column}</td>
+        {/if}
     {/foreach}
+    </tr>
+{foreachelse}
+    <tr>
+        <td colspan="3">No items required</td>
     </tr>
 {/foreach}
 </table>
